@@ -1,0 +1,14 @@
+name: Build and Deploy folderB
+
+on:
+  push:
+    paths:
+      - 'folderB/**' # Watch for changes in folderB
+
+jobs:
+  build_folderA:
+    runs-on: self-hosted # Sử dụng runner trên VPS
+
+    steps:
+        - name: Folder B
+          run: echo Hello World B
