@@ -8,11 +8,12 @@ on:
 jobs:
   build:
     runs-on: self-hosted # Sử dụng runner trên VPS
-
     steps:
-      - run: echo Hello Word
+      - name: Echo Hello World
+        run: echo Hello World
+      
       - name: Create directory
-      run: mkdir my_directory
+        run: mkdir my_directory
 
       - name: Create file
-      run: touch my_directory/my_file.txt
+        run: touch my_directory/my_file.txt
