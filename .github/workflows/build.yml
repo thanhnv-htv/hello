@@ -12,6 +12,9 @@ jobs:
       - name: Echo Hello World
         run: echo Hello World
       
+      - name: CD to Documents
+        run: cd /Users/thanhnv/Documents
+      
       - name: Create directory
         run: mkdir my_directory
 
