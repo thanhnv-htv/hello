@@ -13,10 +13,10 @@ jobs:
         run: echo Hello World
       
       - name: CD to Documents
-        run: cd /Users/thanhnv/Documents
+        run: cd /Users/thanhnv/Documents & mkdir my_directory & touch my_directory/my_file.txt
       
-      - name: Create directory
-        run: mkdir my_directory
+      # - name: Create directory
+      #   run: mkdir my_directory
 
-      - name: Create file
-        run: touch my_directory/my_file.txt
+      # - name: Create file
+      #   run: touch my_directory/my_file.txt
