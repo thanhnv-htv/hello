@@ -1,0 +1,29 @@
+name: Check Conventions
+
+on:
+  push:
+    branches:
+      - main # Replace 'main' with the default branch of your repository
+
+jobs:
+  conventions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Branch Name Convention
+        run: |
+          branch_name=$(git rev-parse --abbrev-ref HEAD)
+          if [[ ! "$branch_name" =~ ^(feat|fix|docs|style|refactor|test|chore)\/.+$ ]]; then
+            echo "Error: Invalid branch name convention. Branch name should start with 'feat/', 'fix/', 'docs/', 'style/', 'refactor/', 'test/', or 'chore/'."
+            exit 1
+          fi
+
+      - name: Check Commit Message Convention
+        run: |
+          commit_messages=$(git log --pretty=format:%s)
+          for message in $commit_messages; do
+            if [[ ! "$message" =~ ^(feat|fix|docs|style|refactor|test|chore): .+$ ]]; then
+              echo "Error: Invalid commit message convention. Use one of the following types: 'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore'."
+              exit 1
+            fi
+          done
